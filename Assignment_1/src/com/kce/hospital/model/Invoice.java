@@ -13,12 +13,22 @@ public class Invoice {
         }
     }
 
-    public double getTotal() { return total; }
-    public boolean isPaid() { return paid; }
+    public double getTotal() {
+        return total;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
 
     public void makePayment(double amount) {
         if (amount >= total) {
             paid = true;
         }
+    }
+
+    // ✅ Add this getter method
+    public TestOrder getOrder() {
+        return order;
     }
 }

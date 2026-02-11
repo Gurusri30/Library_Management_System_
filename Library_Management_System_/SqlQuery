@@ -1,0 +1,24 @@
+CREATE Table Author_Tbl1(
+Author_code NUMBER(5) PRIMARY KEY,
+Author_name VARCHAR2(20) NOT NULL,
+Contact_no NUMBER(10)
+);
+
+INSERT INTO Author_Tbl1 VALUES(1,'RobinSharma',8800799224);
+INSERT INTO Author_Tbl1 VALUES(2,'R.K.Narayan',9971935000);
+INSERT INTO Author_Tbl1 VALUES(3,'Paulo Coelho',1234567890);
+
+SELECT * FROM Author_Tbl1;
+
+commit;
+
+CREATE TABLE Book_Tbl1(
+ISBN VARCHAR2(10) PRIMARY KEY,
+Book_title VARCHAR2(20) NOT NULL,
+Book_type Char(1) CHECK(Book_type IN('G','T')),
+Author_code NUMBER(5) NOT NULL REFERENCES Author_Tbl(Author_code),
+Book_cost NUMBER(8,2) NOT NULL
+);
+
+SELECT * FROM Book_Tbl1;
+commit;
